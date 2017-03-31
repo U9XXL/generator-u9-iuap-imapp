@@ -1,0 +1,28 @@
+{
+  "name": "generator-u9-iuap-imapp",
+  "version": "1.0.0",
+  "description": "U9智能工厂iUAP mobile轻应用生成器",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/U9XXL/generator-u9-iuap-imapp.git"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "xuxle",
+  "license": "ISC",
+  "homepage": "https://github.com/U9XXL/generator-u9-iuap-imapp",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "mkdirp": "^0.5.1",
+    "yeoman-generator": "^0.24.1",
+    "yosay": "^1.2.1"
+  }
+}

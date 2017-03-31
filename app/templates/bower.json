@@ -1,0 +1,24 @@
+{
+  "name": "<%= appId %>",
+  "version": "<%= appVersion %>",
+  "description": "<%= appName %>",
+  "main": "app.js",
+  "keywords": [
+    "<%= appId %>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "ionic": "~1.2.4",
+    "ngCordova": "~0.1.24-alpha",
+    "socket.io-client": "^1.4.8",
+    "U9ImBase": "https://github.com/U9XXL/U9ImBase.git",
+    "ionic-im-hd": "http://10.11.117.81/libraries/ionic-im-hd.git",
+    "angular-im-base": "http://10.11.117.81/libraries/angular-im-base.git"
+  },
+  "overrides": {
+    "socket.io-client": {
+      "main": "dist/socket.io.js"
+    }
+  }
+}
