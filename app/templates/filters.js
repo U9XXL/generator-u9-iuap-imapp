@@ -1,0 +1,2 @@
+
+angular.module('<%= appId %>.filters', []);

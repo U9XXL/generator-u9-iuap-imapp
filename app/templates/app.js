@@ -7,6 +7,7 @@ angular.module('<%= appId %>', [
 
     '<%= appId %>.controllers',
     '<%= appId %>.directives',
+    '<%= appId %>.filters',
     '<%= appId %>.services',
     '<%= appId %>.utility'
 ])

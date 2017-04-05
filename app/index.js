@@ -22,10 +22,19 @@ module.exports = generators.Base.extend({
         }
 
         var prompts = [{
-            type: 'input',
+            type: 'list',
             name: 'mainAppId',
-            message: '壳应用ID',
-            default: 'U9ImHD'
+            message: '请选择轻应用类型',
+            choices: [{
+                name: '工业平板应用',
+                value: 'U9ImHD'
+            }, {
+                name: '手持PDA应用',
+                value: 'U9ImPDA'
+            }, {
+                name: '安卓TV应用',
+                value: 'U9ImTV'
+            }]
         }, {
             type: 'input',
             name: 'appId',
@@ -64,7 +73,8 @@ module.exports = generators.Base.extend({
                 this.destinationPath('bower.json'), {
                     appId: this.appId,
                     appName: this.appName,
-                    appVersion: this.appVersion
+                    appVersion: this.appVersion,
+                    appType: this.mainAppId.toLowerCase().substring(4)
                 }
             );
             this.fs.copy(
@@ -111,6 +121,12 @@ module.exports = generators.Base.extend({
             this.fs.copyTpl(
                 this.templatePath('directives.js'),
                 this.destinationPath('app/js/directives/directives.js'), {
+                    appId: this.appId
+                }
+            );
+            this.fs.copyTpl(
+                this.templatePath('filters.js'),
+                this.destinationPath('app/js/filters/filters.js'), {
                     appId: this.appId
                 }
             );
