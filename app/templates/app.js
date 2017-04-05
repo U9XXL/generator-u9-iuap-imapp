@@ -3,7 +3,7 @@ angular.module('<%= appId %>', [
     'ionic',
     'ngCordova',
     'angularImBase',
-    'ionicImHD',
+    'ionicIm<%= appType %>',
 
     '<%= appId %>.controllers',
     '<%= appId %>.directives',
