@@ -97,10 +97,12 @@ module.exports = generators.Base.extend({
             );
         },
         tpls: function() {
+            var appType = this.mainAppId.toLowerCase().substring(4);
             this.fs.copyTpl(
                 this.templatePath('home.html'),
                 this.destinationPath('app/tpls/home.html'), {
-                    appName: this.appName
+                    appName: this.appName,
+                    directivePre: appType === 'tv' ? 'tv' : 'im'
                 }
             );
         },
@@ -137,10 +139,12 @@ module.exports = generators.Base.extend({
                     appId: this.appId
                 }
             );
+            var appType = this.mainAppId.toLowerCase().substring(4);
             this.fs.copyTpl(
                 this.templatePath('InitService.js'),
                 this.destinationPath('app/js/services/InitService.js'), {
-                    appId: this.appId
+                    appId: this.appId,
+                    servicePre: appType === 'tv' ? 'tv' : 'iman'
                 }
             );
             this.fs.copyTpl(

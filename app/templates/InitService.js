@@ -1,8 +1,8 @@
 
 angular.module('<%= appId %>.services')
 
-.factory('InitService', ['$rootScope', '$q', 'Config', 'imanDialog',
-    function($rootScope, $q, Config, imanDialog) {
+.factory('InitService', ['$rootScope', '$q', 'Config', '<%= servicePre %>Dialog',
+    function($rootScope, $q, Config, <%= servicePre %>Dialog) {
         var defer = $q.defer();
 
         init();
@@ -11,7 +11,7 @@ angular.module('<%= appId %>.services')
 
         function init () {
             $rootScope.$on('responseError', function (e, err) {
-                imanDialog.toastBottom(err.message);
+                <%= servicePre %>Dialog.toastBottom(err.message);
             });
 
             var tasks = [Config.loaded];
