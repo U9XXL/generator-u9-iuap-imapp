@@ -97,12 +97,15 @@ module.exports = generators.Base.extend({
             );
         },
         tpls: function() {
-            var appType = this.mainAppId.toLowerCase().substring(4);
+            var appType = this.mainAppId.toLowerCase().substring(4),
+                homeTplName = 'home';
+            if (appType === 'tv') {
+                homeTplName += 'tv';
+            }
             this.fs.copyTpl(
-                this.templatePath('home.html'),
+                this.templatePath(homeTplName + '.html'),
                 this.destinationPath('app/tpls/home.html'), {
-                    appName: this.appName,
-                    directivePre: appType === 'tv' ? 'tv' : 'im'
+                    appName: this.appName
                 }
             );
         },
@@ -155,9 +158,12 @@ module.exports = generators.Base.extend({
             );
         },
         html: function() {
-            this.fs.copy(
+            var appType = this.mainAppId.toLowerCase().substring(4);
+            this.fs.copyTpl(
                 this.templatePath('index.html'),
-                this.destinationPath('app/index.html')
+                this.destinationPath('app/index.html'), {
+                    notTV: appType !== 'tv'
+                }
             );
         },
         misc: function() {

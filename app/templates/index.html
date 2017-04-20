@@ -16,9 +16,12 @@
 </head>
 <body>
 
+    <% if (notTV) { -%>
     <ion-nav-bar>
         <ion-nav-back-button></ion-nav-back-button>
     </ion-nav-bar>
+    <% } -%>
+
 	<ion-nav-view></ion-nav-view>
 
     <!-- cordova script (this will be a 404 during development) -->
