@@ -27,13 +27,13 @@ module.exports = generators.Base.extend({
             message: '请选择轻应用类型',
             choices: [{
                 name: '工业平板应用',
-                value: 'U9ImHD'
+                value: 'umifhd'
             }, {
                 name: '手持PDA应用',
-                value: 'U9ImPDA'
+                value: 'umifpda'
             }, {
                 name: '安卓TV应用',
-                value: 'U9ImTV'
+                value: 'umiftv'
             }]
         }, {
             type: 'input',
@@ -115,7 +115,7 @@ module.exports = generators.Base.extend({
                 this.destinationPath('app/js/app.js'), {
                     mainAppId: this.mainAppId,
                     appId: this.appId,
-                    appType: this.mainAppId.substring(4)
+                    appType: this.mainAppId.substring(4).toUpperCase()
                 }
             );
             this.fs.copyTpl(
