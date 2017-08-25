@@ -12,7 +12,11 @@ angular.module('<%= appId %>', [
     '<%= appId %>.utility'
 ])
 
-.run(['InitService', function (InitService) {
+.run(['$rootScope', '<%= servicePre %>Dialog', function ($rootScope, <%= servicePre %>Dialog) {
+    $rootScope.$on('responseError', function (e, err) {
+        <%= servicePre %>Dialog.toastBottom(err.message);
+    });
+
     ionic.Platform.isFullScreen = true;
 }])
 
@@ -21,12 +25,7 @@ angular.module('<%= appId %>', [
         $stateProvider
             .state('home', {
                 url: '/home',
-                templateUrl: 'tpls/home.html',
-                resolve: {
-                    'loading': ['InitService', function (InitService) {
-                        return InitService;
-                    }]
-                }
+                templateUrl: 'tpls/home.html'
             });
 
         $urlRouterProvider.otherwise('/home');

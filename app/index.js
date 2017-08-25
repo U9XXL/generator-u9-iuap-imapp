@@ -110,12 +110,14 @@ module.exports = generators.Base.extend({
             );
         },
         scripts: function() {
+            var appType = this.mainAppId.toLowerCase().substring(4);
             this.fs.copyTpl(
                 this.templatePath('app.js'),
                 this.destinationPath('app/js/app.js'), {
                     mainAppId: this.mainAppId,
                     appId: this.appId,
-                    appType: this.mainAppId.substring(4).toUpperCase()
+                    appType: appType.toUpperCase(),
+                    servicePre: appType === 'tv' ? 'tv' : 'iman'
                 }
             );
             this.fs.copyTpl(
@@ -140,14 +142,6 @@ module.exports = generators.Base.extend({
                 this.templatePath('services.js'),
                 this.destinationPath('app/js/services/services.js'), {
                     appId: this.appId
-                }
-            );
-            var appType = this.mainAppId.toLowerCase().substring(4);
-            this.fs.copyTpl(
-                this.templatePath('InitService.js'),
-                this.destinationPath('app/js/services/InitService.js'), {
-                    appId: this.appId,
-                    servicePre: appType === 'tv' ? 'tv' : 'iman'
                 }
             );
             this.fs.copyTpl(
