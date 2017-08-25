@@ -1,6 +1,6 @@
 {
   "name": "generator-u9-iuap-imapp",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "U9智能工厂iUAP mobile轻应用生成器",
   "main": "app/index.js",
   "scripts": {
